@@ -8,16 +8,19 @@ let Alertmessage = document.querySelector("#alert-message")
 
 let showicon =  document.querySelector("#showicon")
 
+
+let userDetails = [];
 form.addEventListener("click", (e) => {
     e.preventDefault();
     let emailVal = email.value.trim()
     let passwordVal = password.value.trim()
-    let userDetails = [];
+    
     
     if (emailVal === "") {
         seterror(email, "field is required")
     } else {
         setSuccess(email, "succes")
+        
         userDetails.push(emailVal)
     }
     if (passwordVal === "") {
@@ -26,7 +29,12 @@ form.addEventListener("click", (e) => {
         setSuccess(password, "succes")
         userDetails.push(passwordVal)
     }
+    
+    checkUser(userDetails);
+})
 
+function checkUser(userDetails){
+    // console.log(userDetails);
     fetch("http://localhost:3000/users")
     .then(res => res.json())
     .then(data => {
@@ -38,14 +46,11 @@ form.addEventListener("click", (e) => {
                 window.location = window.location.origin+"/home-page/landing-page.html"  
             }
             else{
-                alertMessage("uset not exits")
+                alertMessage("credential not found")
             }
         });
     })
-})
-// function verifyUser(userDetails) {
-
-// }
+}
 
 
 function seterror(element, message) {
