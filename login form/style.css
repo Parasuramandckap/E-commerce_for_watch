@@ -134,7 +134,7 @@ label {
 .login-way {
   color: #182C3E;
   margin-left: 100px;
-  margin-top: 60px;
+  margin-top: 70px;
 }
 
 alert-message a.create {
@@ -155,13 +155,15 @@ input.pass {
 .loginbtn {
   background-color: #10CED8;
   color: #ffffff;
-  padding: 10px 196px 10px 198px;
+  padding: 10px 180px 10px 198px;
   border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
   position: absolute;
-  top: 415px;
+  top: 430px;
   margin-bottom: 60px;
+  border: none;
+  font-size: 16px;
 }
 .create{
   color: #10CED8;
@@ -203,13 +205,13 @@ span.eyeopen {
 
 p.errr {
   position: absolute;
-  top: 65px;
+  top: 70px;
   visibility: hidden;
 }
 
 .passwordsss {
   position: relative;
-  margin-top: 11px;
+  margin-top: 20px;
 } 
 
 .icon{
