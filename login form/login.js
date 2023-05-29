@@ -1,4 +1,5 @@
-const form = document.querySelector("#formbtn")
+// const form = document.querySelector("#formbtn")
+const form =  document.querySelector("#form")
 
 let email = document.querySelector("#email")
 
@@ -9,8 +10,8 @@ let Alertmessage = document.querySelector("#alert-message")
 let showicon =  document.querySelector("#showicon")
 
 
-let userDetails = [];
-form.addEventListener("click", (e) => {
+
+form.addEventListener("submit", (e) => {
     e.preventDefault();
     let emailVal = email.value.trim()
     let passwordVal = password.value.trim()
@@ -20,38 +21,40 @@ form.addEventListener("click", (e) => {
         seterror(email, "field is required")
     } else {
         setSuccess(email, "succes")
-        
-        userDetails.push(emailVal)
     }
     if (passwordVal === "") {
         seterror(password, "field is required")
     } else {
         setSuccess(password, "succes")
-        userDetails.push(passwordVal)
     }
     
-    checkUser(userDetails);
+    
+    demo(emailVal,passwordVal)
 })
 
-function checkUser(userDetails){
-    // console.log(userDetails);
-    fetch("http://localhost:3000/users")
-    .then(res => res.json())
-    .then(data => {
-        data.forEach(element => {
-            if(element.email === userDetails[0] && element.password === userDetails[1]){
-                let localStroge = window.localStorage
-                localStroge.setItem("email",userDetails[0])
-                localStroge.setItem("password",userDetails[1])
-                window.location = window.location.origin+"/home-page/landing-page.html"  
-            }
-            else{
-                alertMessage("credential not found")
-            }
-        });
-    })
-}
+function demo(emailVal,passwordVal){
+    if(emailVal != "" && passwordVal != ""){
+        fetch("http://localhost:3000/users")
+        .then(res=>res.json())
+        .then(data => {
+            data.forEach(userDetails => {
+                if(userDetails.email == emailVal && userDetails.password == passwordVal){
+                    let localStroge = window.localStorage
+                    localStroge.setItem("email",emailVal)
+                    localStroge.setItem("password",passwordVal)
+                    window.location = window.location.origin+"/home-page/landing-page.html"
+                }
+                else{
+                    alertMessage("credential not found") 
+                }
+            });
+        })
+    }
+    else{
+        alertMessage("please enter the feilds")
+    }
 
+}
 
 function seterror(element, message) {
     let tagerElementsibling = element.nextElementSibling
@@ -88,3 +91,9 @@ showicon.addEventListener("click",()=>{
         password.type = "password"
     }
 })
+
+email.addEventListener("keyup",(e)=>change(e))
+password.addEventListener("keyup",(e)=>change(e))
+function change(e){
+    e.target.nextElementSibling.style.visibility = "hidden"
+}
