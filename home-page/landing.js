@@ -2,14 +2,29 @@ let Allproducts = document.querySelectorAll(".product-detatils")
 let products = document.querySelector(".products")
 let highlight = document.querySelector(".highlight")
 let mostLovedproduct = document.querySelectorAll(".product-list")
+let User_Div =document.querySelector(".user")
+
 window.addEventListener("DOMContentLoaded",()=>{
+
+    // getting user name from Local storage
+        let Name =window.localStorage.email;
+        let FindIndex = Name.indexOf("@");
+        let Username = Name.substring(0,FindIndex)
     fetch("http://localhost:3000/products/")
     .then(res=>res.json())
     .then(productsCreate=>{
-        // console.log(data)
-        //function call product genarate
+
+     // Setting user name and User email from Local storage
+        User_Div.children[0].innerText=  window.localStorage.email;
+        User_Div.children[1].innerText=  Username;
+            User_Div.children[2].addEventListener("click",(e)=>{
+                e.preventDefault()
+                localStorage.clear()
+                 window.location = window.location.origin+"/login-form/login.html"
+            })
+
             productGenarate(productsCreate)
-        for(let i=0;i<4;i++){
+            for(let i=0;i<4;i++){
             // console.log(productsCreate[i])
             let mostDiv = document.createElement("div")
             mostDiv.setAttribute("class","loved-list")
@@ -43,6 +58,7 @@ window.addEventListener("DOMContentLoaded",()=>{
         }
     }).catch((error)=>console.log(error))
 })
+/*------------------------------------------------------------------------------ */
 
 function productGenarate(productsCreate){
     productsCreate.forEach((productsCreate)=>{
@@ -92,22 +108,41 @@ function productGenarate(productsCreate){
     })
 
 }
+/*------------------------------------------------------------------------------ */
 
 //addEventlisterner for filter
-let filterIcon = document.querySelector(".filler-icon")
-let filterDiv = document.querySelector(".filter")
+// let filterIcon = document.querySelector(".filler-icon")
+// let filterDiv = document.querySelector(".filter")
 
-filterIcon.addEventListener("click",()=>{
-    filterDiv.classList.toggle("show")
+// filterIcon.addEventListener("click",()=>{
+//     filterDiv.classList.toggle("show")
+//     // hide(document.querySelector(".user"))
+//     // hide(document.querySelector(".wishlist"))
+//     // hide(document.querySelector(".cart"))
+// })
+
+
+// It will show the user who is logged in
+let User_Icon =document.querySelector(".user-icon")
+User_Icon.addEventListener("click",()=>{
+    User_Div.classList.toggle("show");
+    if (User_Div.classList.contains("show")) {
+        User_Div.style.display="block";
+    }
+    else{
+        User_Div.style.display="none";
+
+    }
+
     // hide(document.querySelector(".user"))
     // hide(document.querySelector(".wishlist"))
     // hide(document.querySelector(".cart"))
 })
 
 
+/*------------------------------------------------------------------------------ */
 
 let search = document.querySelector(".search")
-
 function filler_products(brandName){
     // console.log(name)
     search.addEventListener("keyup",(e)=>{
