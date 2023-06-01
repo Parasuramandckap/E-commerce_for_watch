@@ -336,20 +336,36 @@ header{
 .show{
     display: block;
 }
+.show1{
+    display: block;
+}
 .hide{
     display: none;
 }
 /* user */
-.user{
+
+element.style {
+    display: block;
+}
+.user {
     position: absolute;
     left: 1054px;
     top: 65px;
     background-color: #ffffff;
-    width: 125px;
+    width: 150px;
     height: 149px;
     border: 2px solid var(--primary-color);
+    border-radius: 5px;
     display: none;
+    padding-left: 11px;
 }
+.user >p{
+    padding-top:10px ;
+}
+.user >a{
+    padding-top:10px ;
+}
+
 .wishlist{
     position: absolute;
     left: 1054px;
