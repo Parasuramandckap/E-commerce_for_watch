@@ -374,13 +374,14 @@ header{
     flex-wrap: wrap;
     padding: 18px;
     gap: 19px;
-    width: 283px;
+    width: 290px;
     overflow: auto;
+    max-height: 310px;
 }
 .productDiv {
     box-shadow: 0px 0px 4px 0px gray;
-    padding: 6px;
     text-align: center;
+    position: relative;
 }
 .productImg {
     height: 71px;
@@ -389,4 +390,13 @@ header{
     background-color: gray;
     height: 1px;
     margin: 5px 0px;
+}
+.productDetails{
+    padding: 3px 26px;
+}
+img.removeWishList {
+    position: absolute;
+    right: 4px;
+    top: 0px;
+    padding: 10px 10px;
 }
