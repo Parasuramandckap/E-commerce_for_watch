@@ -1,0 +1,224 @@
+*{
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========== root =========== */
+
+:root{
+  --primary-color:#10CED8;  
+  --secondary-color:#182C3E; 
+  --input-border-color:rgba(0, 0, 0, 0.4);
+  --icon-color:rgba(0, 0, 0, 0.4);
+  --font-family: Arial, sans-serif;
+  --img-font-color: #fff;
+}
+
+/* =========== root =========== */
+
+
+.container{
+  max-width: 1480px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+}
+
+.split{
+    width: 50%;
+    height: 100%;
+    top: 0;
+    position: relative;
+}
+
+.left{
+    z-index: 1;
+}
+
+/* ============== FORM ============== */
+form {
+    width: 400px;
+    margin: 50px auto;
+    font-family: var(--font-family);
+    padding: 20px;
+    height: 480px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: var(--secondary-color);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+  }
+  
+  input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  input[type="submit"] {
+    background-color:var(--primary-color);
+    color: white;
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color:var(--secondary-color);
+    color: var(--primary-color);
+  }
+
+  p.already {
+    color: var(--secondary-color);
+    margin-left: 69px
+}
+
+  a.already{
+    text-decoration: none;
+    color: var(--primary-color);
+    margin-left: 5px;
+  }
+
+  span.eyeclose{
+    color: var(--secondary-color);
+    position: relative;
+    left: 390px;
+    bottom: 23px;
+  }
+
+  span.eyeopen{
+    color: var(--secondary-color);
+    position: relative;
+    left: 372px;
+    bottom: 40px;
+    visibility: hidden;   
+  }
+
+.iconsss {
+  position: absolute;
+  bottom: 39px;
+  left: 93%;
+}
+
+.icoon {
+  position: absolute;
+  bottom: 39px;
+  left: 93%;
+}
+
+p.text {
+  margin-top: 10px;
+}
+
+#SignUp {
+  margin-top: 20px;
+}
+
+.confirm {
+  margin-top: 30px;
+  position: relative;
+}
+
+.pass{
+  position: relative;
+}
+
+.fake-img {
+  position: absolute;
+  top: 202px;
+  left: 110px;
+}
+
+img.fakeImg{
+  width: 395px;
+  height: 429px;
+}
+
+.my-hexagon {
+  position: absolute;
+  right: 0px;
+}
+
+.my-hexagon img{
+width: 652px;
+height: 632px;
+}
+
+.fa-solid{
+  color: var(--icon-color);
+}
+
+.email{
+  margin-top: 10px;
+}
+
+.pass{
+  margin-top: 10px;
+}
+
+.confirm{
+  margin-top: 10px;
+}
+
+.err{
+  margin-top:-2px;
+  visibility: hidden;
+}
+
+.textes {
+  position: absolute;
+  top: 53px;
+  left: 105px;
+  font-size: 16px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  color: var(--img-font-color);
+}
+
+span{
+  color: red;
+}
+
+img.watchss {
+  position: absolute;
+  height: 148px;
+  width: 260px;
+  top: 150px;
+  left: 380px;
+}
+
+.btnDown{
+  width: 106px;
+  height: 37px;
+  border-radius: 10px;
+  border: 0;
+  background-color: var(--primary-color);
+  color: var(--img-font-color);
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.downButton {
+  position: absolute;
+  top: 497px;
+  left: 450px;
+}
+
+i{
+  cursor: pointer;
+}
